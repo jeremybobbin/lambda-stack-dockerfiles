@@ -34,6 +34,8 @@ RUN apt-get update && \
 		lambda-server && \
 	rm -rf /var/lib/apt/lists/*
 
+RUN pip3 install gym
+
 # Setup for nvidia-docker
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
