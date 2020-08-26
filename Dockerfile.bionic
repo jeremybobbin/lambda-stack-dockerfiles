@@ -2,6 +2,8 @@ FROM ubuntu:18.04
 
 WORKDIR /root/
 
+EXPOSE 80/tcp
+
 # Add libcuda dummy dependency
 ADD control .
 RUN apt-get update && \
@@ -33,6 +35,8 @@ RUN apt-get update && \
 		lambda-stack-cuda \
 		lambda-server && \
 	rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install --ignore-installed notebook
 
 # Setup for nvidia-docker
 ENV NVIDIA_VISIBLE_DEVICES all
