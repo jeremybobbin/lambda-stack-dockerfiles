@@ -33,3 +33,7 @@ RUN apt-key add lambda.gpg && \
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 ENV NVIDIA_REQUIRE_CUDA "cuda>=10.0"
+
+RUN apt update && \
+	apt -y install openssh-server x11-apps xauth x11-xserver-utils && \
+	echo PermitRootLogin yes >> /etc/ssh/sshd_config
